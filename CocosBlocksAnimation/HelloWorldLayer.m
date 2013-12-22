@@ -95,8 +95,9 @@
 
 - (void)rotateAndMoveToDistance:(CGFloat)distance {
     self.container.rotation += 180;
-    CGFloat angle = 0;
+
     CCNode *node;
+    CGFloat angle = 0;
     CCARRAY_FOREACH(self.container.children, node) {
             CGPoint dp = ccpMult(ccpForAngle(CC_DEGREES_TO_RADIANS(angle)), distance);
             node.position = ccpAdd(dp, node.position);

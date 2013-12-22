@@ -79,21 +79,36 @@ You may manipulate timing of the animation by providing your custom timing block
 
 Example:
 
-        [CCNode animateWithDuration:0.4f animations:^{
-            sprite1.scale += 1.0f;
-            sprite1.rotation += 180;
-            sprite2.scale += 0.5f;
-            sprite2.rotation += 90;
+    - (void)runTestAnimation {
+        [CCNode animateWithDuration:1.2f animations:^{
+            [self rotateAndMoveToDistance:70];
         } repeatCount:3 timingBlock:^(CGFloat progress) {
             return progress * progress;
-        } completion:^{
-            [CCNode animateWithDuration:0.4f animations:^{
-                sprite1.scale = 1.0f;
-                sprite1.rotation = 0;
-                sprite2.scale = 1.0f;
-                sprite2.rotation = 0;
-            }];
-        }];
+        }
+            completion:^() {
+                [CCNode animateWithDuration:1.2f animations:^{
+                    [self rotateAndMoveToDistance:-210];
+                }                completion:^() {
+                    [self runTestAnimation];
+                }];
+            }
+        ];
+    }
+    
+    
+    - (void)rotateAndMoveToDistance:(CGFloat)distance {
+        self.container.rotation += 180;
+    
+        CCNode *node;
+        CGFloat angle = 0;
+        CCARRAY_FOREACH(self.container.children, node) {
+                CGPoint dp = ccpMult(ccpForAngle(CC_DEGREES_TO_RADIANS(angle)), distance);
+                node.position = ccpAdd(dp, node.position);
+                if ([node isKindOfClass:[CCSprite class]]) {
+                    CCSprite * sprite = (CCSprite *) node;
+                }
+                angle+= 90;
+     }
 
 
-# ![Screenshot](https://raw.github.com/kronik/DKLiveBlur/master/example.gif)
+# ![Screenshot](https://raw.github.com/tkach/CocosBlocksAnimation/master/Demo.gif)
