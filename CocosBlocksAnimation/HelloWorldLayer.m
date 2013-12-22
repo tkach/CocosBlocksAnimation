@@ -76,36 +76,37 @@
 
 #pragma mark - Animations
 
-- (void)runTestAnimation {
-    [CCNode animateWithDuration:1.2f animations:^{
-        [self rotateAndMoveToDistance:70];
-    } repeatCount:3 timingBlock:^(CGFloat progress) {
-        return progress * progress;
-    }
-        completion:^() {
-            [CCNode animateWithDuration:1.2f animations:^{
-                [self rotateAndMoveToDistance:-210];
-            }                completion:^() {
-                [self runTestAnimation];
-            }];
+    - (void)runTestAnimation {
+        [CCNode animateWithDuration:1.2f animations:^{
+            [self rotateAndMoveToDistance:70];
+        } repeatCount:3 timingBlock:^(CGFloat progress) {
+            return progress * progress;
         }
-    ];
-}
-
-
-- (void)rotateAndMoveToDistance:(CGFloat)distance {
-    self.container.rotation += 180;
-    CGFloat angle = 0;
-    CCNode *node;
-    CCARRAY_FOREACH(self.container.children, node) {
-            CGPoint dp = ccpMult(ccpForAngle(CC_DEGREES_TO_RADIANS(angle)), distance);
-            node.position = ccpAdd(dp, node.position);
-            if ([node isKindOfClass:[CCSprite class]]) {
-                CCSprite * sprite = (CCSprite *) node;
+            completion:^() {
+                [CCNode animateWithDuration:1.2f animations:^{
+                    [self rotateAndMoveToDistance:-210];
+                }                completion:^() {
+                    [self runTestAnimation];
+                }];
             }
-            angle+= 90;
-            };
-}
+        ];
+    }
+
+
+    - (void)rotateAndMoveToDistance:(CGFloat)distance {
+        self.container.rotation += 180;
+
+        CCNode *node;
+        CGFloat angle = 0;
+        CCARRAY_FOREACH(self.container.children, node) {
+                CGPoint dp = ccpMult(ccpForAngle(CC_DEGREES_TO_RADIANS(angle)), distance);
+                node.position = ccpAdd(dp, node.position);
+                if ([node isKindOfClass:[CCSprite class]]) {
+                    CCSprite * sprite = (CCSprite *) node;
+                }
+                angle+= 90;
+                };
+    }
 
 - (void)cancelAnimationsForNode:(id)node {
     [node cancelAllBlockAnimations];
