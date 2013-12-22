@@ -9,15 +9,16 @@ Pod::Spec.new do |s|
   just describe the properties of your CCNode after animation duration and don't worry about any other things."
 
   s.homepage     = "https://github.com/tkach/CocosBlocksAnimation"
-  s.license      = 'MIT '
+  s.license      = { :type => 'MIT',  :file => 'LICENSE' }
   s.author       = { "Alexander Tkachenko" => "tkach2004@gmail.com" }
 
   s.platform     = :ios, '5.0'
 
-  s.source       = { :git => "https://github.com/tkach/CocosBlocksAnimation.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/tkach/CocosBlocksAnimation.git", :commit => 'a3bf6fce7cad1d825739ab67e7eff95acdbece73' }
   
   s.source_files  = 'CocosBlocksAnimation/CocosBlocksAnimation/**/*.{h,m,mm}'
   s.public_header_files = 'CocosBlocksAnimation/CocosBlocksAnimation/CocosBlocksAnimation.h'
+  s.xcconfig =  { 'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/cocos2d/external/kazmath/include"' }
   s.requires_arc = false
   
   s.dependency 'cocos2d', '~> 2.1'
