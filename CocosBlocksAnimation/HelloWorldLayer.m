@@ -61,6 +61,7 @@
             CCSprite *icon = [CCSprite spriteWithFile:@"Icon.png"];
             [self.container addChild:icon];
         }
+
 	}
 	return self;
 }
@@ -76,13 +77,13 @@
 #pragma mark - Animations
 
 - (void)runTestAnimation {
-    [CCNode animateWithDuration:0.4f animations:^{
+    [CCNode animateWithDuration:1.2f animations:^{
         [self rotateAndMoveToDistance:70];
     } repeatCount:3 timingBlock:^(CGFloat progress) {
         return progress * progress;
     }
         completion:^() {
-            [CCNode animateWithDuration:0.5f animations:^{
+            [CCNode animateWithDuration:1.2f animations:^{
                 [self rotateAndMoveToDistance:-210];
             }                completion:^() {
                 [self runTestAnimation];
@@ -105,7 +106,6 @@
             angle+= 90;
             };
 }
-
 
 - (void)cancelAnimationsForNode:(id)node {
     [node cancelAllBlockAnimations];

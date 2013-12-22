@@ -95,3 +95,5 @@ Example:
             }];
         }];
 
+
+# ![Screenshot](https://raw.github.com/kronik/DKLiveBlur/master/example.gif)
