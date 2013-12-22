@@ -43,7 +43,7 @@ CocosBlocksAnimation is inspired by block-based UIView animation approach.
 ============
 If you are using CocoaPods ([https://github.com/CocoaPods/CocoaPods](https://github.com/CocoaPods/CocoaPods)), just include this line to your Podfile.
 
-	pod 'CocosBlocksAnimation', :git => 'https://https://github.com/tkach/CocosBlocksAnimation.git'
+	pod 'CocosBlocksAnimation', :git => 'https://github.com/tkach/CocosBlocksAnimation.git'
 
 Alternatively, you can just copy this sources in your project:
 
