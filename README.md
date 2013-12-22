@@ -104,9 +104,6 @@ Example:
         CCARRAY_FOREACH(self.container.children, node) {
                 CGPoint dp = ccpMult(ccpForAngle(CC_DEGREES_TO_RADIANS(angle)), distance);
                 node.position = ccpAdd(dp, node.position);
-                if ([node isKindOfClass:[CCSprite class]]) {
-                    CCSprite * sprite = (CCSprite *) node;
-                }
                 angle+= 90;
      }
 

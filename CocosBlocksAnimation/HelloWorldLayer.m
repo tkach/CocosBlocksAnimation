@@ -82,13 +82,13 @@
     } repeatCount:3 timingBlock:^(CGFloat progress) {
         return progress * progress;
     }
-        completion:^() {
-            [CCNode animateWithDuration:1.2f animations:^{
-                [self rotateAndMoveToDistance:-210];
-            }                completion:^() {
-                [self runTestAnimation];
-            }];
-        }
+                     completion:^() {
+                         [CCNode animateWithDuration:1.2f animations:^{
+                             [self rotateAndMoveToDistance:-210];
+                         }                completion:^() {
+                             [self runTestAnimation];
+                         }];
+                     }
     ];
 }
 
@@ -101,12 +101,10 @@
     CCARRAY_FOREACH(self.container.children, node) {
             CGPoint dp = ccpMult(ccpForAngle(CC_DEGREES_TO_RADIANS(angle)), distance);
             node.position = ccpAdd(dp, node.position);
-            if ([node isKindOfClass:[CCSprite class]]) {
-                CCSprite * sprite = (CCSprite *) node;
-            }
             angle+= 90;
             };
 }
+
 
 - (void)cancelAnimationsForNode:(id)node {
     [node cancelAllBlockAnimations];
