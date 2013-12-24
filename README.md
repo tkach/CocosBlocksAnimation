@@ -45,11 +45,9 @@ If you are using CocoaPods ([https://github.com/CocoaPods/CocoaPods](https://git
 
 	pod 'CocosBlocksAnimation', :git => 'https://github.com/tkach/CocosBlocksAnimation.git'
 
-Alternatively, you can just copy this sources in your project:
+Alternatively, you can just copy this directory in your project:
 
-- CocosBlocksAnimation/CocosBlocksAnimation/CocosBlocksAnimation.h
-- CocosBlocksAnimation/CocosBlocksAnimation/Categories/*
-- CocosBlocksAnimation/BlockAnimator
+- CocosBlocksAnimation/CocosBlocksAnimation
 
 
 Usage
@@ -65,7 +63,7 @@ You need to describe your animation in this block.
 
 It may transform multiple CCNode instances. All changed properties of all nodes grouped by AnimationBlock will be animated with the same animation duration.
 
-You may transform animatable CCNode properties in AnimationBlock:
+Please, avoid any game logic in your AnimatinBlock, cause it's used internally in the engine. Operate only with nodes' properties. You may transform such animatable CCNode properties in AnimationBlock:
 
 - position
 - rotation
@@ -109,3 +107,13 @@ Example:
 
 
 # ![Screenshot](https://raw.github.com/tkach/CocosBlocksAnimation/master/Demo.gif)
+
+
+TODO
+=====
+
+Features planned sorted by priority (highest to lowest)
+
+1. Easing functions support (EaseIn/Out, EaseSineIn/Out, Elastic, etc..)
+2. Configurable delay before animations
+3. Animations initialization optimization
