@@ -7,6 +7,8 @@
 #import "CCNode+BlocksAnimation.h"
 #import "cocos2d.h"
 #import "CBABlocksAnimator.h"
+#import "CBAEasingTimingFunction.h"
+
 
 @implementation CCNode (BlocksAnimation)
 
@@ -30,7 +32,17 @@
 
 
 + (void)animateWithDuration:(NSTimeInterval)duration animations:(AnimationBlock)animations repeatCount:(NSInteger)repeatCount timingBlock:(TimingFunctionBlock)timingBlock completion:(CompletionBlock)completion {
-    [[CBABlocksAnimator sharedInstance] animateWithDuration:duration animations:animations timingBlock:timingBlock completion:completion repeatCount:repeatCount];
+    [self animateWithDuration:duration animations:animations repeatCount:repeatCount timingBlock:timingBlock timingFunction:nil completion:completion];
+}
+
+
++ (void)animateWithDuration:(NSTimeInterval)duration animations:(AnimationBlock)animations repeatCount:(NSInteger)repeatCount timingFunction:(CBAEasingTimingFunction *)timingFunction completion:(CompletionBlock)completion {
+    [self animateWithDuration:duration animations:animations repeatCount:repeatCount timingBlock:nil timingFunction:timingFunction completion:completion];
+}
+
+
++ (void)animateWithDuration:(NSTimeInterval)duration animations:(AnimationBlock)animations repeatCount:(NSInteger)repeatCount timingBlock:(TimingFunctionBlock)timingBlock timingFunction:(CBAEasingTimingFunction *)timingFunction completion:(CompletionBlock)completion {
+    [[CBABlocksAnimator sharedInstance] animateWithDuration:duration animations:animations timingBlock:timingBlock timingFunction:timingFunction completion:completion repeatCount:repeatCount];
 }
 
 

@@ -8,6 +8,8 @@
 #import "CBABlockAnimationTypedefs.h"
 
 @class CCNode;
+@class CBAEasingTimingFunction;
+
 
 @interface CBABlockAnimationContext : NSObject
 
@@ -22,6 +24,7 @@
 @property(nonatomic, readonly) BOOL isRunning;
 
 @property(nonatomic, copy) TimingFunctionBlock timingBlock;
+@property(nonatomic, retain) CBAEasingTimingFunction * timingFunction;
 
 - (void)applyAnimationProgress:(CGFloat)progress;
 - (void)startAction;

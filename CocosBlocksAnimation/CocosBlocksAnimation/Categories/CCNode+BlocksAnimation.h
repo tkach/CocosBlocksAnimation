@@ -7,6 +7,7 @@
 #import <Foundation/Foundation.h>
 #import "CCNode.h"
 #import "CBABlockAnimationTypedefs.h"
+@class CBAEasingTimingFunction;
 
 
 @interface CCNode (BlocksAnimation)
@@ -35,7 +36,7 @@
 
 + (void)animateWithDuration:(NSTimeInterval)duration animations:(AnimationBlock)animations repeatCount:(NSInteger)repeatCount timingBlock:(TimingFunctionBlock)timingBlock completion:(CompletionBlock)completion;
 
-//TODO: + (void)animateWithDuration:(NSTimeInterval)duration animations:(AnimationBlock)animations repeatCount:(NSInteger)repeatCount timingFunction:(BATimingFunctionType)timingFunctionType completion:(CompletionBlock)completion;
++ (void)animateWithDuration:(NSTimeInterval)duration animations:(AnimationBlock)animations repeatCount:(NSInteger)repeatCount timingFunction:(CBAEasingTimingFunction *)timingFunction completion:(CompletionBlock)completion;
 
 - (void)cancelAllBlockAnimations;
 

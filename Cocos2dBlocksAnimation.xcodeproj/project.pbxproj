@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E35C22D90DBBA7186F211CB /* CBAEaseOut.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E35CB69407D579F46B1A0E2 /* CBAEaseOut.m */; };
+		8E35C83576FECD27356023B1 /* CBAEasingTimingFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E35CF9AD7F02B7948C2D20B /* CBAEasingTimingFunction.m */; };
+		8E35CAA22842BD9B8CDA0771 /* CBAEaseInOut.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E35C91C2D644F132B0DC730 /* CBAEaseInOut.m */; };
+		8E35CE4BC3D60983891BDC19 /* CBAEaseIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E35CEF4F3C1A2F220324373 /* CBAEaseIn.m */; };
 		D4BADF50504347309337CFEB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69281CF8621D42F699D06260 /* libPods.a */; };
 		D7358C7718678A3D003A7E44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7358C5318678A3D003A7E44 /* AppDelegate.m */; };
 		D7358C7818678A3D003A7E44 /* CBABlockAnimationContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D7358C5718678A3D003A7E44 /* CBABlockAnimationContext.m */; };
@@ -44,7 +48,15 @@
 
 /* Begin PBXFileReference section */
 		69281CF8621D42F699D06260 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E35C4256C2AA0CF10CB2A3F /* CBAEaseInOut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAEaseInOut.h; sourceTree = "<group>"; };
+		8E35C8338A9D32BF1E58870B /* CBAEaseOut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAEaseOut.h; sourceTree = "<group>"; };
+		8E35C91C2D644F132B0DC730 /* CBAEaseInOut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBAEaseInOut.m; sourceTree = "<group>"; };
 		8E35C9698243790FAB7D8903 /* CocosBlocksAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosBlocksAnimation.h; sourceTree = "<group>"; };
+		8E35CB69407D579F46B1A0E2 /* CBAEaseOut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBAEaseOut.m; sourceTree = "<group>"; };
+		8E35CB96803FBA305CC094BD /* CBAEasingTimingFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAEasingTimingFunction.h; sourceTree = "<group>"; };
+		8E35CBE0CEA51B338A79FC7E /* CBAEaseIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAEaseIn.h; sourceTree = "<group>"; };
+		8E35CEF4F3C1A2F220324373 /* CBAEaseIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBAEaseIn.m; sourceTree = "<group>"; };
+		8E35CF9AD7F02B7948C2D20B /* CBAEasingTimingFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBAEasingTimingFunction.m; sourceTree = "<group>"; };
 		B2D0B47A8EEB4D30B1859749 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		D7358C5218678A3D003A7E44 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D7358C5318678A3D003A7E44 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -114,6 +126,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E35CCCD5BF00B5FFC7BC012 /* EasingTimingFunctions */ = {
+			isa = PBXGroup;
+			children = (
+				8E35CF9AD7F02B7948C2D20B /* CBAEasingTimingFunction.m */,
+				8E35CB96803FBA305CC094BD /* CBAEasingTimingFunction.h */,
+				8E35CEF4F3C1A2F220324373 /* CBAEaseIn.m */,
+				8E35CBE0CEA51B338A79FC7E /* CBAEaseIn.h */,
+				8E35CB69407D579F46B1A0E2 /* CBAEaseOut.m */,
+				8E35C8338A9D32BF1E58870B /* CBAEaseOut.h */,
+				8E35C91C2D644F132B0DC730 /* CBAEaseInOut.m */,
+				8E35C4256C2AA0CF10CB2A3F /* CBAEaseInOut.h */,
+			);
+			path = EasingTimingFunctions;
+			sourceTree = "<group>";
+		};
 		D7358C5118678A3D003A7E44 /* CocosBlocksAnimation */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +178,7 @@
 				D7358C5A18678A3D003A7E44 /* CBABlockAnimationTypedefs.h */,
 				D7358C5B18678A3D003A7E44 /* CBABlocksAnimator.h */,
 				D7358C5C18678A3D003A7E44 /* CBABlocksAnimator.mm */,
+				8E35CCCD5BF00B5FFC7BC012 /* EasingTimingFunctions */,
 			);
 			path = BlockAnimator;
 			sourceTree = "<group>";
@@ -349,6 +377,10 @@
 				D7358C7D18678A3D003A7E44 /* CCSprite+BlocksAnimatorPrivate.m in Sources */,
 				D7358C8018678A3D003A7E44 /* main.m in Sources */,
 				D7358C7818678A3D003A7E44 /* CBABlockAnimationContext.m in Sources */,
+				8E35C83576FECD27356023B1 /* CBAEasingTimingFunction.m in Sources */,
+				8E35CE4BC3D60983891BDC19 /* CBAEaseIn.m in Sources */,
+				8E35C22D90DBBA7186F211CB /* CBAEaseOut.m in Sources */,
+				8E35CAA22842BD9B8CDA0771 /* CBAEaseInOut.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

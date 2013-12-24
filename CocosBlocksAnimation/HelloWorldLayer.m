@@ -13,6 +13,8 @@
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
 #import "CCNode+BlocksAnimation.h"
+#import "CBAEaseIn.h"
+#import "CBAEaseInOut.h"
 
 #pragma mark - HelloWorldLayer
 
@@ -79,9 +81,7 @@
 - (void)runTestAnimation {
     [CCNode animateWithDuration:1.2f animations:^{
         [self rotateAndMoveToDistance:70];
-    } repeatCount:3 timingBlock:^(CGFloat progress) {
-        return progress * progress;
-    }
+    } repeatCount:3 timingFunction:[CBAEaseInOut functionWithRate:3]
                      completion:^() {
                          [CCNode animateWithDuration:1.2f animations:^{
                              [self rotateAndMoveToDistance:-210];

@@ -9,6 +9,8 @@
 #import "CCNode+BlocksAnimation.h"
 #import "CGPointExtension.h"
 #import "CCNode+BlocksAnimatorPrivate.h"
+#import "CBAEasingTimingFunction.h"
+
 
 @interface CBABlockAnimationContext ()
 
@@ -85,6 +87,9 @@
     if (self.timingBlock) {
         return self.timingBlock(progress);
     }
+    else if (self.timingFunction) {
+        return [self.timingFunction updateProgress:progress];
+    }
     else {
         return progress; //Linear
     }
@@ -127,6 +132,7 @@
     self.completionBlock = nil;
     self.animations = nil;
     self.timingBlock = nil;
+    self.timingFunction = nil;
     [super dealloc];
 }
 

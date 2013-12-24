@@ -13,6 +13,7 @@
 #import "CBABlockAnimationExecutor.h"
 #import "CCNode+BlocksAnimatorPrivate.h"
 #import "CCNode+BlocksAnimation.h"
+#import "CBAEasingTimingFunction.h"
 
 
 @interface CBABlocksAnimator ()
@@ -50,12 +51,26 @@
 #pragma mark - Public
 
 - (void)animateWithDuration:(NSTimeInterval)duration animations:(AnimationBlock)animations timingBlock:(TimingFunctionBlock)timingBlock completion:(CompletionBlock)completion repeatCount:(int)repeatCount {
-    if (!animations) {
-        return;
-    }
+    [self animateWithDuration:duration animations:animations timingBlock:timingBlock timingFunction:nil completion:completion repeatCount:repeatCount];
+}
+
+
+- (void)animateWithDuration:(NSTimeInterval)duration animations:(AnimationBlock)animations timingFunction:(CBAEasingTimingFunction *)timingFunction completion:(CompletionBlock)completion repeatCount:(int)repeatCount {
+    [self animateWithDuration:duration animations:animations timingBlock:nil timingFunction:timingFunction completion:completion repeatCount:repeatCount];
+}
+
+
+- (void)animateWithDuration:(NSTimeInterval)duration animations:(AnimationBlock)animations timingBlock:(TimingFunctionBlock)timingBlock timingFunction:(CBAEasingTimingFunction *)timingFunction completion:(CompletionBlock)completion repeatCount:(int)repeatCount {
+    NSAssert(animations, @"CABlocksAnimator ERROR:"
+     "\n        Please, provide non-nil AnimationsBlock"
+    );
 
     // At first, take all nodes that are taking effect of animations
     NSArray *animatedNodes = [self animatedNodesForBlock:animations];
+    NSAssert(animatedNodes.count, @"CABlocksAnimator ERROR:"
+     "\n        It seems that animation block doesn't provide any animation. Maybe nodes aren't added to the node hierarchy yet?"
+     "\n        Or you hadn't changed any animatable node properties in animation block"
+    );
 
     //Create animation context
     CBABlockAnimationContext *context = [[CBABlockAnimationContext new] autorelease];
@@ -65,6 +80,7 @@
     context.repeatCount = repeatCount;
     context.animations = animations;
     context.timingBlock = timingBlock;
+    context.timingFunction = timingFunction;
 
     //and pass it for execution
     [self.blockAnimationExecutor addContextForExecution:context];

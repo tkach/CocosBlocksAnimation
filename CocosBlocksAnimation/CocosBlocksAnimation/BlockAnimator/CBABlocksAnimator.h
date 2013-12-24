@@ -9,6 +9,8 @@
 
 @class CCNode;
 @class CBABlockAnimationExecutor;
+@class CBAEasingTimingFunction;
+
 
 @interface CBABlocksAnimator : NSObject
 
@@ -27,7 +29,9 @@
 * Please, don't put any game logic in AnimationBlock, cause it's used internally and such usage has unpredicted behavior
 */
 - (void)animateWithDuration:(NSTimeInterval)duration animations:(AnimationBlock)animations timingBlock:(TimingFunctionBlock)timingBlock completion:(CompletionBlock)completion repeatCount:(int)repeatCount;
+- (void)animateWithDuration:(NSTimeInterval)duration animations:(AnimationBlock)animations timingFunction:(CBAEasingTimingFunction *)timingFunction completion:(CompletionBlock)completion repeatCount:(int)repeatCount;
 
+- (void)animateWithDuration:(NSTimeInterval)duration animations:(AnimationBlock)animations timingBlock:(TimingFunctionBlock)timingBlock timingFunction:(CBAEasingTimingFunction *)timingFunction completion:(CompletionBlock)completion repeatCount:(int)repeatCount;
 /**
 * Cancelling all animations for node
 */
