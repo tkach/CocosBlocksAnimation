@@ -13,10 +13,10 @@
 
 - (CGFloat)updateProgress:(CGFloat)progress {
     if (progress < 0.5f) {
-        return 0.5f * powf (progress, self.rate);
+        return 0.5f * powf (progress * 2, self.rate);
     }
     else {
-        return 1.0f - 0.5f * powf(2-progress, self.rate);
+        return 1.0f - 0.5f * powf(2-progress * 2, self.rate);
     }
 }
 
