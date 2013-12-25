@@ -72,6 +72,16 @@ Please, avoid any game logic in your AnimatinBlock, cause it's used internally i
 
 Optionally you can provide CompletionBlock that will be called after animation finish. 
 
+You can use predefined EasingFunctions: EaseIn, EaseOut, EaseInOut by using CBAEaseIn, CBAEaseOut, CBAEaseInOut timing functions and sending it as a parameter to 
+
+	+ (void)animateWithDuration:(NSTimeInterval)duration 
+				 	 animations:(AnimationBlock)animations 
+				 	repeatCount:(NSInteger)repeatCount 
+				 timingFunction:(CBAEasingTimingFunction *)timingFunction 
+					 completion:(CompletionBlock)completion;
+
+
+
 You may manipulate timing of the animation by providing your custom timing block, as in example below.
 
 
